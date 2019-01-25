@@ -8,8 +8,9 @@ export default class Example extends Component {
       <View style={styles.container}>
         <Counter
           end={1000}
-          template={value => `Hello ${value}`}
+          template={value => `Hello ${value.toFixed(2)}`}
           style={val => (val > 500 ? { color: "red" } : {})}
+          eaysing='cubicInOut'
         />
       </View>
     );

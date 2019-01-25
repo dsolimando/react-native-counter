@@ -9,7 +9,7 @@ interface IProps {
   digits?: number;
   time?: number;
   easing?: string;
-  template?: (value: string) => string;
+  template?: (value: number) => string;
   onComplete?: () => void;
   style?: (value: number) => any | any;
 }
@@ -68,11 +68,9 @@ export default class Counter extends Component<IProps, IState> {
     const { digits, style } = this.props;
     const { value = 0 } = this.state;
 
-    const toFixed = value.toFixed(digits);
-
     return (
       <Text style={typeof style === 'function' ? style(value) : style}>
-        {this.props.template ? this.props.template(toFixed) : toFixed}
+        {this.props.template ? this.props.template(value) : value.toFixed(digits)}
       </Text>
     );
   };
